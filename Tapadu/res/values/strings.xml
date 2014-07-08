@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Tapadu</string>
+    <string name="widget_name">Lanzador Tapadu</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <string name="wgPalabraClave">Toca para decir la palabra clave</string>
+    
+    <string name="btRutina">Nueva Rutina</string>
+    <string name="btConsRutina">Consulta Rutina</string>
+    <string name="btConsCatalogo">Consulta Catálogo</string>
+    <string name="btConfig">Configuración</string>
+    
+    <string name="msjErrorInstalarGoogleVoice">Para activar el reconocimiento de voz, debes instalar \"Google Voice Search\"</string>
+    <string name="msjPreguntarInstalarGoogleVoice">¿Deseas instalar \"Google Voice Search\" desde Google Play?</string>
+    <string name="btInstall">Instalar</string>
+    <string name="btCancel">Cancelar</string>
+    
+    
+    <string name="txtPaso1NuevaRutina">1. Selecciona la aplicación</string>
+    <string name="txtPaso1Rutina">Paso 1/2</string>
+    <string name="mpNuevaRutina">Estás en: Nueva rutina</string>
+    <string name="txtPaso2NuevaRutina">2. Categoriza la rutina</string>
+    <string name="txtPaso2SelCategoria">Selecciona la categoría</string>
+    <string name="txtPaso2Etiquetas">Etiquetas que describen la aplicación</string>
+    <string name="txtPaso3NuevaRutina">3. Escribe la palabra clave</string>
+    <string name="txtPaso2Rutina">Paso 2/2</string>
+    <string name="btGuardarRutina">Guardar rutina</string>
+    <string name="msjRutinaGuardada">La rutina ha sido guardada correctamente</string>
+    <string name="hntEtiquetas">Escribe palabras que definan la aplicación</string>
+    <string name="txtPaso3">Pulsa el botón para decir la palabra clave</string>
+    <string name="txtPaso3PalabraClave">La palabra clave capturada es:</string>
+    <string name="msjPalabraClave">Diga la palabra clave</string>
+    <string name="errCategoria">Se debe seleccionar una categoría</string>
+    <string name="errEtiquetas">Se debe informar al menos una etiqueta</string>
+    <string name="errPalabraClave">Se debe informar de la palabra clave</string>
+    <string name="errPalabraClaveDuplicada">La palabra clave ya está siendo usada en otra rutina</string>
+    <string name="msjLoadingApps">Cargando aplicaciones instaladas&#8239;</string>
+    <string name="msjLoadingRutinas">Cargando rutinas instaladas&#8239;</string>
+
+    <string name="txtPaso1Consulta">Selecciona la rutina sobre la que desees ver el detalle</string>
+    <string name="mpConsultaRutina">Estás en: Consulta rutina</string>
+    
+    <string name="errNoExisteRutina">ERROR: No se ha encontrado la rutina</string>
+    <string name="errNoRecuperaVoz">ERROR: Se ha producido un error con Google Voice</string>
+    
+    <string name="mpDetalleRutina">Estás en: Detalle rutina</string>
+    <string name="detRutinaCategoria">Categoría:</string>
+    <string name="detRutinaEtiquetas">Etiquetas:</string>
+    <string name="detRutinaPalabraClave">Palabra clave:</string>
+    <string name="btModificarRutina">Modificar rutina</string>
+    <string name="btSubirRutina">Subir rutina</string>
+    
+</resources>
+

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="categoriasApp">
+        <item>Selecciona categoría</item>
+        <item>Bibliotecas y demos</item>
+        <item>Cómics</item>
+        <item>Compras</item>
+        <item>Comunicación</item>
+        <item>Deportes</item>
+        <item>Educación</item>
+        <item>Entretenimiento</item>
+        <item>Estilo de vida</item>
+        <item>Finanzas</item>
+        <item>Fondos animados</item>
+        <item>Fotografía</item>
+        <item>Herramientas</item>
+        <item>Libros y obras de consulta</item>
+        <item>Medicina</item>
+        <item>Multimedia y vídeo</item>
+        <item>Música y audio</item>
+        <item>Negocios</item>
+        <item>Noticias y revistas</item>
+        <item>Personalización</item>
+        <item>Productividad</item>
+        <item>Salud y bienestar</item>
+        <item>Sociedad</item>
+        <item>Tiempo</item>
+        <item>Transporte</item>
+        <item>Viajes y guías</item>
+        <item>Widgets</item>
+    </string-array>
+
+</resources>

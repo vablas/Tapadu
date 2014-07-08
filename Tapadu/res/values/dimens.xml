@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sepPasos">10dp</dimen>
+    <dimen name="sepMigaPan">5dp</dimen>
+    <dimen name="sepApartados">20dp</dimen>
+    <dimen name="sepSubApartados">15dp</dimen>
+    <dimen name="my_image_width">56dp</dimen>
+    <dimen name="widget_margin">0dp</dimen>
+</resources>

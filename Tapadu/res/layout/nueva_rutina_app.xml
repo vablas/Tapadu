@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        style="@style/AppTheme.MigaPan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mpNuevaRutina"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        style="@style/AppTheme.Pasos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/sepPasos"
+        android:layout_marginTop="@dimen/sepPasos"
+        android:text="@string/txtPaso1NuevaRutina" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_margin="5dp"
+        android:layout_weight="1" >
+
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/border_rect"
+            android:drawSelectorOnTop="false" />
+    </FrameLayout>
+
+    <TextView
+        style="@style/AppTheme.Pasos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/sepPasos"
+        android:layout_marginTop="@dimen/sepPasos"
+        android:text="@string/txtPaso1Rutina" />
+
+</LinearLayout>
