@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="8"
         android:targetSdkVersion="19" />
 
     <application
@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <receiver
-            android:name="com.kaliuss.tapadu.widget.Widget"
+            android:name="com.kaliuss.tapadu.widget.WidgetTapadu"
             android:label="@string/widget_name" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -48,6 +48,7 @@
         </activity>
         <activity
             android:name="com.kaliuss.tapadu.actividades.WidgetActivity"
+            android:theme="@style/Theme.Transparent"
             android:label="@string/app_name" >
         </activity>
         <activity

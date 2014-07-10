@@ -43,4 +43,12 @@ public class MCU {
 		return "";
 	}
 
+	/**
+	 * @param string
+	 */
+	public boolean eliminarRutinaByPalabraClave(String palabraClave) {
+		return catalogo.eliminaRutinaByPalabraClave(palabraClave);
+		
+	}
+
 }

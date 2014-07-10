@@ -16,11 +16,9 @@
     <style name="AppTheme" parent="android:Theme.Holo">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-    
-    <style name="AppTheme.Widget">
-        
-    </style>
-    
+
+    <style name="AppTheme.Widget"></style>
+
     <style name="AppTheme.WidgetText">
         <item name="android:textColor">#9933CC</item>
         <item name="android:textSize">9pt</item>
@@ -38,7 +36,7 @@
         <item name="android:layout_marginRight">20dp</item>
         <item name="android:layout_marginLeft">20dp</item>
     </style>
-    
+
     <style name="AppTheme.ButtonWidget">
         <item name="android:layout_gravity">center</item>
         <item name="android:background">#CCAA66CC</item>
@@ -50,12 +48,21 @@
         <item name="android:textSize">10pt</item>
         <item name="android:textStyle">bold</item>
     </style>
-    
+
     <style name="AppTheme.MigaPan">
         <item name="android:gravity">center</item>
         <item name="android:textSize">8pt</item>
         <item name="android:textStyle">italic</item>
         <item name="android:layout_marginTop">5dp</item>
+    </style>
+
+    <style name="Theme.Transparent" parent="android:Theme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
     </style>
 
 </resources>

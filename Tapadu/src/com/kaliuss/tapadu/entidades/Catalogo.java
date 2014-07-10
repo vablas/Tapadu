@@ -31,6 +31,11 @@ public class Catalogo {
 		
 	}
 	
+	public void actualizaCatalogo(){
+		catalogoDAO.guardarCatalogo();
+		catalogoDAO.leerCatalogo();
+	}
+	
 	public boolean existeRutina(String packageName){
 		for(Rutina rutina:listaRutinas){
 			if(rutina.getNomPackage().equals(packageName)){
@@ -73,6 +78,20 @@ public class Catalogo {
 
 	public void setListaRutinas(List<Rutina> listaRutinas) {
 		this.listaRutinas = listaRutinas;
+	}
+
+	/**
+	 * @param palabraClave
+	 */
+	public boolean eliminaRutinaByPalabraClave(String palabraClave) {
+		for(Rutina rutina:listaRutinas){
+			if(rutina.getPalabraClave().trim().toUpperCase().equals(palabraClave.toUpperCase())){
+				listaRutinas.remove(rutina);
+				actualizaCatalogo();
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	

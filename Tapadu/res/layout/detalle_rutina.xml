@@ -43,6 +43,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/sepPasos" />
+
+                <Button
+                    android:id="@+id/btSubirRutina"
+                    style="@style/AppTheme.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="@string/btSubirRutina" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -112,16 +122,15 @@
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:text="@string/btModificarRutina" />
-                
                 <Button
-                    android:id="@+id/btSubirRutina"
+                    android:id="@+id/btEliminarRutina"
                     style="@style/AppTheme.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:text="@string/btSubirRutina" />
+                    android:text="@string/btEliminarRutina" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

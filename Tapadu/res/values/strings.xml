@@ -42,7 +42,8 @@
     <string name="txtPaso1Consulta">Selecciona la rutina sobre la que desees ver el detalle</string>
     <string name="mpConsultaRutina">Estás en: Consulta rutina</string>
     
-    <string name="errNoExisteRutina">ERROR: No se ha encontrado la rutina</string>
+    <string name="errNoExisteRutina">No se ha encontrado la rutina</string>
+    <string name="errNoExisteRutinaIntentar">Pulsa para volver a intentarlo</string>
     <string name="errNoRecuperaVoz">ERROR: Se ha producido un error con Google Voice</string>
     
     <string name="mpDetalleRutina">Estás en: Detalle rutina</string>
@@ -51,6 +52,11 @@
     <string name="detRutinaPalabraClave">Palabra clave:</string>
     <string name="btModificarRutina">Modificar rutina</string>
     <string name="btSubirRutina">Subir rutina</string>
+    <string name="btEliminarRutina">Eliminar rutina</string>
+    <string name="titEliminarRutina">Eliminar rutina</string>
+    <string name="msjEliminarRutina">¿Desea eliminar la rutina?</string>
+    <string name="errEliminarRutina">Error al eliminar la rutina</string>
+    <string name="btOk">Aceptar</string>
     
 </resources>
 
