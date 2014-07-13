@@ -55,6 +55,10 @@
             android:name="com.kaliuss.tapadu.actividades.DetalleRutina"
             android:label="@string/app_name" >
         </activity>
+        <activity
+            android:name="com.kaliuss.tapadu.actividades.ModificaRutinaDatos"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>

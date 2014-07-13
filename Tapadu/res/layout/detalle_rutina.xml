@@ -51,8 +51,8 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
+                    android:paddingTop="-10dp"
                     android:text="@string/btSubirRutina" />
-
             </LinearLayout>
 
             <LinearLayout
@@ -122,6 +122,7 @@
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:text="@string/btModificarRutina" />
+
                 <Button
                     android:id="@+id/btEliminarRutina"
                     style="@style/AppTheme.Button"

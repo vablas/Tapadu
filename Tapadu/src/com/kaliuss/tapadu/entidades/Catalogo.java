@@ -27,8 +27,7 @@ public class Catalogo {
 
 	public void addRutina(Rutina rutina){
 		listaRutinas.add(rutina);
-		catalogoDAO.guardarCatalogo();
-		
+		actualizaCatalogo();
 	}
 	
 	public void actualizaCatalogo(){
@@ -45,9 +44,10 @@ public class Catalogo {
 		return false;
 	}
 	
-	public boolean existePalabraClave(String palabraClave){
+	public boolean existePalabraClave(String palabraClave, String nombrePackage){
 		for(Rutina rutina:listaRutinas){
-			if(rutina.getPalabraClave().equals(palabraClave.trim())){
+			if(rutina.getPalabraClave().equals(palabraClave.trim())
+					&& !nombrePackage.equals(rutina.getNomPackage())){
 				return true;
 			}
 		}

@@ -131,7 +131,7 @@ public class NuevaRutinaDatos extends Activity {
 			etPalabraClave.setBackgroundResource(R.drawable.border_error);
 		}else{
 			palabraClave = etPalabraClave.getText().toString().replace(getResources().getString(R.string.txtPaso3PalabraClave), "");
-			if(Catalogo.getCatalogo().existePalabraClave(palabraClave)){
+			if(Catalogo.getCatalogo().existePalabraClave(palabraClave,"")){
 				mensajeError += sep+getResources().getString(R.string.errPalabraClaveDuplicada) ;
 				sep="\n";
 				etPalabraClave.setBackgroundResource(R.drawable.border_error);

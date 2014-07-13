@@ -27,6 +27,8 @@ public class DetalleRutina extends Activity {
 	private Button btModificarRutina;
 	private Button btSubirRutina;
 	private Button btEliminarRutina;
+	
+	private Rutina rutina;
 
 
 	@Override
@@ -54,7 +56,7 @@ public class DetalleRutina extends Activity {
 			e.printStackTrace();
 		}
 
-		Rutina rutina = Catalogo.getCatalogo().getRutinaByNombrePackage(nombrePackage);
+		rutina = Catalogo.getCatalogo().getRutinaByNombrePackage(nombrePackage);
 		if(rutina!=null){
 			tvNombreApp.setText(rutina.getNombre());
 			tvCategoria.setText(rutina.getCategoria());
@@ -97,7 +99,9 @@ public class DetalleRutina extends Activity {
 	 * @param object
 	 */
 	protected void modificarRutina(Object object) {
-		// TODO Auto-generated method stub
+		Intent i = new Intent(this, ModificaRutinaDatos.class);
+		i.putExtra("rutinaPackage", rutina.getNomPackage());
+		startActivity(i);
 
 	}
 

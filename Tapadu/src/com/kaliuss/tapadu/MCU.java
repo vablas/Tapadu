@@ -6,6 +6,7 @@ package com.kaliuss.tapadu;
 import android.content.pm.ApplicationInfo;
 
 import com.kaliuss.tapadu.actividades.Tapadu;
+import com.kaliuss.tapadu.dao.CatalogoDAO;
 import com.kaliuss.tapadu.entidades.Catalogo;
 import com.kaliuss.tapadu.entidades.Rutina;
 
@@ -42,6 +43,7 @@ public class MCU {
 		}
 		return "";
 	}
+	
 
 	/**
 	 * @param string
@@ -49,6 +51,24 @@ public class MCU {
 	public boolean eliminarRutinaByPalabraClave(String palabraClave) {
 		return catalogo.eliminaRutinaByPalabraClave(palabraClave);
 		
+	}
+	
+	public void modificarRutina(ApplicationInfo appInfo, 
+			String categoria, String listaEtiquetas, 
+			String palabraClave){
+		//Primero eliminamos la rutina anterior
+		Rutina rutOld = catalogo.getRutinaByNombrePackage(appInfo.packageName);
+		catalogo.eliminaRutinaByPalabraClave(rutOld.getPalabraClave());
+		
+		//Añadimos la nueva rutina
+		Rutina rutina = new Rutina();
+		rutina.setNombre(appInfo.loadLabel(Tapadu.context.getPackageManager()).toString());
+		rutina.setNomPackage(appInfo.packageName);
+		rutina.setCategoria(categoria);
+		rutina.setListaEtiquetas(listaEtiquetas);
+		rutina.setPalabraClave(palabraClave);
+		rutina.setEstado("");
+		catalogo.addRutina(rutina);
 	}
 
 }
