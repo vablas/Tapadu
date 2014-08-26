@@ -12,7 +12,8 @@ public class Tapadu extends Activity {
 
 	private Button btNuevaRutina;
 	private Button btConsRutina;
-	private Button btConsCatalogo;
+	private Button btSubeCatalogo;
+	private Button btDescargaCatalogo;
 	private Button btConfig;
 	
 	public static Context context;
@@ -36,10 +37,17 @@ public class Tapadu extends Activity {
 			}
 		});
 
-		btConsCatalogo =(Button) findViewById(R.id.btConsCatalogo);
-		btConsCatalogo.setOnClickListener(new OnClickListener() {
+		btSubeCatalogo =(Button) findViewById(R.id.btSubeCatalogo);
+		btSubeCatalogo.setOnClickListener(new OnClickListener() {
 			public void onClick(View view) {
-				lanzarConsultaCatalogo(null);
+				lanzarSubirCatalogo(null);
+			}
+		});
+		
+		btDescargaCatalogo =(Button) findViewById(R.id.btDescargaCatalogo);
+		btDescargaCatalogo.setOnClickListener(new OnClickListener() {
+			public void onClick(View view) {
+				lanzarDescargaCatalogo(null);
 			}
 		});
 
@@ -64,7 +72,12 @@ public class Tapadu extends Activity {
 		startActivity(i);
 	}
 
-	public void lanzarConsultaCatalogo(View view){
+	public void lanzarSubirCatalogo(View view){
+		//	      Intent i = new Intent(this, AcercaDe.class);
+		//	            startActivity(i);
+	}
+	
+	public void lanzarDescargaCatalogo(View view){
 		//	      Intent i = new Intent(this, AcercaDe.class);
 		//	            startActivity(i);
 	}

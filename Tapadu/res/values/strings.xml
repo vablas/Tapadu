@@ -9,7 +9,8 @@
     
     <string name="btRutina">Nueva Rutina</string>
     <string name="btConsRutina">Consulta Rutina</string>
-    <string name="btConsCatalogo">Consulta Catálogo</string>
+    <string name="btSubeCatalogo">Subir Catálogo</string>
+    <string name="btDescCatalogo">Descarga Catálogo</string>
     <string name="btConfig">Configuración</string>
     
     <string name="msjErrorInstalarGoogleVoice">Para activar el reconocimiento de voz, debes instalar \"Google Voice Search\"</string>
@@ -21,10 +22,7 @@
     <string name="txtPaso1NuevaRutina">1. Selecciona la aplicación</string>
     <string name="txtPaso1Rutina">Paso 1/2</string>
     <string name="mpNuevaRutina">Estás en: Nueva rutina</string>
-    <string name="txtPaso2NuevaRutina">2. Categoriza la rutina</string>
-    <string name="txtPaso2SelCategoria">Selecciona la categoría</string>
-    <string name="txtPaso2Etiquetas">Etiquetas que describen la aplicación</string>
-    <string name="txtPaso3NuevaRutina">3. Escribe la palabra clave</string>
+    <string name="txtPaso3NuevaRutina">2. Di la palabra clave</string>
     <string name="txtPaso2Rutina">Paso 2/2</string>
     <string name="btGuardarRutina">Guardar rutina</string>
     <string name="msjRutinaGuardada">La rutina ha sido guardada correctamente</string>
@@ -58,8 +56,7 @@
     <string name="errEliminarRutina">Error al eliminar la rutina</string>
     <string name="btOk">Aceptar</string>
     
-    <string name="modPasoCategorizar">1. Modifica la categorización</string>
-    <string name="modPalabraClave">2. Modifica la palabra clave</string>
+    <string name="modPalabraClave">Modifica la palabra clave</string>
     <string name="mpModRutina">Estás en: Detalle rutina > Modificar rutina</string>
     <string name="btModRutinaPC">Pulsa el botón para modificar la palabra clave</string>
     <string name="btModRutina">Guardar cambios</string>

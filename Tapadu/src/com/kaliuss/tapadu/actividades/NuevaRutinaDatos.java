@@ -22,8 +22,6 @@ import com.kaliuss.tapadu.utiles.SpeechRecognitionHelper;
 
 public class NuevaRutinaDatos extends Activity {
 	private ApplicationInfo appInfoSeleccionada;
-	private Spinner spCategoria;
-	private EditText etListaEtiquetas;
 	private TextView etPalabraClave;
 	private Button btGuardarRutina;
 	private Button btPalabraClave;
@@ -39,18 +37,11 @@ public class NuevaRutinaDatos extends Activity {
 	}
 
 	private void initPantalla() {
-		spCategoria = (Spinner) findViewById(R.id.spCategoria);
-		ArrayAdapter adaptadorSpinner = ArrayAdapter.createFromResource( this, R.array.categoriasApp , android.R.layout.simple_spinner_item);
-		adaptadorSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		spCategoria.setAdapter(adaptadorSpinner);
 
 		Bundle extras = getIntent().getExtras();
 		appInfoSeleccionada = (ApplicationInfo)extras.get("appInfo");
 
 		etPalabraClave = (TextView) findViewById(R.id.palabraClave);
-		etListaEtiquetas = (EditText) findViewById(R.id.etListaEtiquetas);
-
-		spCategoria = (Spinner) findViewById(R.id.spCategoria);
 
 		btPalabraClave =(Button) findViewById(R.id.btPalabraClave);
 		btPalabraClave.setOnClickListener(new OnClickListener() {
@@ -94,7 +85,7 @@ public class NuevaRutinaDatos extends Activity {
 		if(validaDatosRutina()){
 			MCU mcu = new MCU();
 			String palabraClave = etPalabraClave.getText().toString().replace(getResources().getString(R.string.txtPaso3PalabraClave), "");
-			mcu.guardarNuevaRutina(appInfoSeleccionada, spCategoria.getSelectedItem().toString(), etListaEtiquetas.getText().toString(), palabraClave);
+			mcu.guardarNuevaRutina(appInfoSeleccionada, palabraClave);
 			Toast.makeText(this, R.string.msjRutinaGuardada, Toast.LENGTH_SHORT).show();
 			Intent i = new Intent(this, Tapadu.class);
 			startActivity(i);
@@ -110,21 +101,6 @@ public class NuevaRutinaDatos extends Activity {
 		String mensajeError = "";
 		String sep = "";
 		String palabraClave = "";
-		String[] categorias = getResources().getStringArray(R.array.categoriasApp);
-		if(spCategoria.getSelectedItem().toString().equals(categorias[0])){
-			mensajeError += sep+getResources().getString(R.string.errCategoria) ;
-			sep="\n";
-			spCategoria.setBackgroundResource(R.drawable.border_error);
-		}else{
-			spCategoria.setBackgroundResource(R.drawable.border_normal);
-		}
-		if("".equals(etListaEtiquetas.getText().toString())){
-			mensajeError += sep+getResources().getString(R.string.errEtiquetas) ;
-			sep="\n";
-			etListaEtiquetas.setBackgroundResource(R.drawable.border_error);
-		}else{
-			etListaEtiquetas.setBackgroundResource(R.drawable.border_normal);
-		}
 		if(etPalabraClave.getText().toString().equals(getResources().getString(R.string.txtPaso3PalabraClave))){
 			mensajeError += sep+getResources().getString(R.string.errPalabraClave) ;
 			sep="\n";

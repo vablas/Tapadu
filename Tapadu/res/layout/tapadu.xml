@@ -28,12 +28,20 @@
         android:text="@string/btConsRutina" />
 
     <Button
-        android:id="@+id/btConsCatalogo"
+        android:id="@+id/btSubeCatalogo"
         style="@style/AppTheme.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/btConsCatalogo"
-        android:text="@string/btConsCatalogo" />
+        android:contentDescription="@string/btSubeCatalogo"
+        android:text="@string/btSubeCatalogo" />
+    
+    <Button
+        android:id="@+id/btDescargaCatalogo"
+        style="@style/AppTheme.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/btDescCatalogo"
+        android:text="@string/btDescCatalogo" />
 
     <Button
         android:id="@+id/btConfig"

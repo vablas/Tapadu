@@ -5,15 +5,9 @@ public class Rutina {
 	String nombre;
 	String nomPackage;
 	String palabraClave;
-	String estado;
-	String categoria;
-	String idCatalogo;
-	String listaEtiquetas;
-
-
+	
 	public Rutina() {
 		super();
-		idCatalogo = "";
 	}
 
 	/**
@@ -25,17 +19,11 @@ public class Rutina {
 	 * @param idCatalogo
 	 * @param listaEtiquetas
 	 */
-	public Rutina(String nombre, String nomPackage, String palabraClave,
-			String estado, String categoria, String idCatalogo,
-			String listaEtiquetas) {
+	public Rutina(String nombre, String nomPackage, String palabraClave) {
 		super();
 		this.nombre = nombre;
 		this.nomPackage = nomPackage;
 		this.palabraClave = palabraClave;
-		this.estado = estado;
-		this.categoria = categoria;
-		this.idCatalogo = idCatalogo;
-		this.listaEtiquetas = listaEtiquetas;
 	}
 
 
@@ -62,38 +50,6 @@ public class Rutina {
 	
 	public void setPalabraClave(String palabraClave) {
 		this.palabraClave = palabraClave;
-	}
-
-	public String getEstado() {
-		return this.estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-
-	public String getCategoria() {
-		return this.categoria;
-	}
-
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
-	}
-
-	public String getIdCatalogo() {
-		return this.idCatalogo;
-	}
-
-	public void setIdCatalogo(String idCatalogo) {
-		this.idCatalogo = idCatalogo;
-	}
-
-	public String getListaEtiquetas() {
-		return this.listaEtiquetas;
-	}
-
-	public void setListaEtiquetas(String listaEtiquetas) {
-		this.listaEtiquetas = listaEtiquetas;
 	}
 
 }

@@ -27,8 +27,6 @@ public class ModificaRutinaDatos extends Activity {
 	private ApplicationInfo appInfoSeleccionada;
 	private ImageView ivApp;
 	private TextView tvNombreApp;
-	private Spinner spCategoria;
-	private EditText etListaEtiquetas;
 	private TextView etPalabraClave;
 	private Button btGuardarRutina;
 	private Button btPalabraClave;
@@ -49,16 +47,8 @@ public class ModificaRutinaDatos extends Activity {
 		//Inicializamos la pantalla
 		ivApp =(ImageView) findViewById(R.id.modRutina_iconApp);
 		tvNombreApp =(TextView) findViewById(R.id.modRutina_nombreApp);
-		spCategoria = (Spinner) findViewById(R.id.spCategoriaMod);
-		ArrayAdapter adaptadorSpinner = ArrayAdapter.createFromResource( this, R.array.categoriasApp , android.R.layout.simple_spinner_item);
-		adaptadorSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		spCategoria.setAdapter(adaptadorSpinner);
 
 		etPalabraClave = (TextView) findViewById(R.id.palabraClaveMod);
-		etListaEtiquetas = (EditText) findViewById(R.id.etListaEtiquetasMod);
-
-		spCategoria = (Spinner) findViewById(R.id.spCategoriaMod);
-
 		btPalabraClave =(Button) findViewById(R.id.btModRutinaPC);
 		btPalabraClave.setOnClickListener(new OnClickListener() {
 			public void onClick(View view) {
@@ -88,13 +78,6 @@ public class ModificaRutinaDatos extends Activity {
 		rutina = Catalogo.getCatalogo().getRutinaByNombrePackage(nombrePackage);
 		if(rutina!=null){
 			tvNombreApp.setText(rutina.getNombre());
-			String[] categorias = this.getResources().getStringArray(R.array.categoriasApp);
-			for(int i=0; i<categorias.length;i++){
-				if(rutina.getCategoria().equals(categorias[i])){
-					spCategoria.setSelection(i);
-				}
-			}
-			etListaEtiquetas.setText(rutina.getListaEtiquetas());
 			etPalabraClave.setText(getResources().getString(R.string.txtPaso3PalabraClave) + " "+rutina.getPalabraClave());
 		}
 
@@ -125,7 +108,7 @@ public class ModificaRutinaDatos extends Activity {
 		if(validaDatosRutina()){
 			MCU mcu = new MCU();
 			String palabraClave = etPalabraClave.getText().toString().replace(getResources().getString(R.string.txtPaso3PalabraClave), "");
-			mcu.modificarRutina(appInfoSeleccionada, spCategoria.getSelectedItem().toString(), etListaEtiquetas.getText().toString(), palabraClave);
+			mcu.modificarRutina(appInfoSeleccionada, palabraClave);
 			Toast.makeText(this, R.string.msjRutinaModificada, Toast.LENGTH_SHORT).show();
 			Intent i = new Intent(this, ConsultaRutina.class);
 			startActivity(i);
@@ -140,21 +123,6 @@ public class ModificaRutinaDatos extends Activity {
 		String mensajeError = "";
 		String sep = "";
 		String palabraClave = "";
-		String[] categorias = getResources().getStringArray(R.array.categoriasApp);
-		if(spCategoria.getSelectedItem().toString().equals(categorias[0])){
-			mensajeError += sep+getResources().getString(R.string.errCategoria) ;
-			sep="\n";
-			spCategoria.setBackgroundResource(R.drawable.border_error);
-		}else{
-			spCategoria.setBackgroundResource(R.drawable.border_normal);
-		}
-		if("".equals(etListaEtiquetas.getText().toString())){
-			mensajeError += sep+getResources().getString(R.string.errEtiquetas) ;
-			sep="\n";
-			etListaEtiquetas.setBackgroundResource(R.drawable.border_error);
-		}else{
-			etListaEtiquetas.setBackgroundResource(R.drawable.border_normal);
-		}
 		if(etPalabraClave.getText().toString().equals(getResources().getString(R.string.txtPaso3PalabraClave))){
 			mensajeError += sep+getResources().getString(R.string.errPalabraClave) ;
 			sep="\n";

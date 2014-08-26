@@ -43,16 +43,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/sepPasos" />
-
-                <Button
-                    android:id="@+id/btSubirRutina"
-                    style="@style/AppTheme.Button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:paddingTop="-10dp"
-                    android:text="@string/btSubirRutina" />
             </LinearLayout>
 
             <LinearLayout
@@ -61,35 +51,6 @@
                 android:layout_margin="@dimen/sepPasos"
                 android:background="@drawable/border_rect"
                 android:orientation="vertical" >
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/detRutinaCategoria"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="italic" />
-
-                <TextView
-                    android:id="@+id/detRutina_categoria"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/sepPasos"
-                    android:text="@string/detRutinaEtiquetas"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="italic" />
-
-                <TextView
-                    android:id="@+id/detRutina_etiquetas"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <TextView
                     android:id="@+id/textView4"

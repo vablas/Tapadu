@@ -22,15 +22,11 @@ public class MCU {
 	}
 
 	public void guardarNuevaRutina(ApplicationInfo appInfo, 
-			String categoria, String listaEtiquetas, 
 			String palabraClave){
 		Rutina rutina = new Rutina();
 		rutina.setNombre(appInfo.loadLabel(Tapadu.context.getPackageManager()).toString());
 		rutina.setNomPackage(appInfo.packageName);
-		rutina.setCategoria(categoria);
-		rutina.setListaEtiquetas(listaEtiquetas);
 		rutina.setPalabraClave(palabraClave);
-		rutina.setEstado("");
 		
 		catalogo.addRutina(rutina);
 	}
@@ -53,9 +49,7 @@ public class MCU {
 		
 	}
 	
-	public void modificarRutina(ApplicationInfo appInfo, 
-			String categoria, String listaEtiquetas, 
-			String palabraClave){
+	public void modificarRutina(ApplicationInfo appInfo, String palabraClave){
 		//Primero eliminamos la rutina anterior
 		Rutina rutOld = catalogo.getRutinaByNombrePackage(appInfo.packageName);
 		catalogo.eliminaRutinaByPalabraClave(rutOld.getPalabraClave());
@@ -64,10 +58,7 @@ public class MCU {
 		Rutina rutina = new Rutina();
 		rutina.setNombre(appInfo.loadLabel(Tapadu.context.getPackageManager()).toString());
 		rutina.setNomPackage(appInfo.packageName);
-		rutina.setCategoria(categoria);
-		rutina.setListaEtiquetas(listaEtiquetas);
 		rutina.setPalabraClave(palabraClave);
-		rutina.setEstado("");
 		catalogo.addRutina(rutina);
 	}
 

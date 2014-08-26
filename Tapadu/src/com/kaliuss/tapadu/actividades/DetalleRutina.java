@@ -21,11 +21,8 @@ public class DetalleRutina extends Activity {
 	private ApplicationInfo appInfoSeleccionada;
 	private ImageView ivApp;
 	private TextView tvNombreApp;
-	private TextView tvCategoria;
-	private TextView tvEtiquetas;
 	private TextView tvPalabraClave;
 	private Button btModificarRutina;
-	private Button btSubirRutina;
 	private Button btEliminarRutina;
 	
 	private Rutina rutina;
@@ -42,8 +39,6 @@ public class DetalleRutina extends Activity {
 	private void initPantalla() {
 		ivApp =(ImageView) findViewById(R.id.detRutina_iconApp);
 		tvNombreApp =(TextView) findViewById(R.id.detRutina_nombreApp);
-		tvCategoria =(TextView) findViewById(R.id.detRutina_categoria);
-		tvEtiquetas =(TextView) findViewById(R.id.detRutina_etiquetas);
 		tvPalabraClave =(TextView) findViewById(R.id.detRutina_palabraClave);
 
 		Bundle extras = getIntent().getExtras();
@@ -59,8 +54,6 @@ public class DetalleRutina extends Activity {
 		rutina = Catalogo.getCatalogo().getRutinaByNombrePackage(nombrePackage);
 		if(rutina!=null){
 			tvNombreApp.setText(rutina.getNombre());
-			tvCategoria.setText(rutina.getCategoria());
-			tvEtiquetas.setText(rutina.getListaEtiquetas());
 			tvPalabraClave.setText(rutina.getPalabraClave());
 		}
 		btModificarRutina =(Button) findViewById(R.id.btModificarRutina);
@@ -76,22 +69,6 @@ public class DetalleRutina extends Activity {
 				eliminarRutina(null);
 			}
 		});
-
-		btSubirRutina =(Button) findViewById(R.id.btSubirRutina);
-		btSubirRutina.setOnClickListener(new OnClickListener() {
-			public void onClick(View view) {
-				subirRutina(null);
-			}
-		});
-
-
-	}
-
-	/**
-	 * @param object
-	 */
-	protected void subirRutina(Object object) {
-		// TODO Auto-generated method stub
 
 	}
 

@@ -22,10 +22,6 @@ public class JsonUtiles {
 				object.put("nombre", rut.getNombre());
 				object.put("nomPackage", rut.getNomPackage());
 				object.put("palabraClave", rut.getPalabraClave());
-				object.put("listaEtiquetas", rut.getListaEtiquetas());
-				object.put("categoria", rut.getCategoria());
-				object.put("estado", rut.getEstado());
-				object.put("idCatalogo", rut.getIdCatalogo());
 				jsonArray.put(object);
 			}
 
@@ -45,10 +41,6 @@ public class JsonUtiles {
 				rutina.setNombre(jsonObject.getString("nombre").trim());
 				rutina.setNomPackage(jsonObject.getString("nomPackage").trim());
 				rutina.setPalabraClave(jsonObject.getString("palabraClave").trim());
-				rutina.setListaEtiquetas(jsonObject.getString("listaEtiquetas").trim());
-				rutina.setCategoria(jsonObject.getString("categoria").trim());
-				rutina.setEstado(jsonObject.getString("estado").trim());
-				rutina.setIdCatalogo(jsonObject.getString("idCatalogo").trim());
 				listaRutinas.add(rutina);
 			}
 		} catch (Exception e) {
