@@ -1,6 +1,7 @@
 package com.kaliuss.tapadu.actividades;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import android.app.ListActivity;
@@ -39,6 +40,8 @@ public class NuevaRutinaAplicacion extends ListActivity {
 
 	private class CargaAplicaciones extends AsyncTask<Void, Void, Void> {
 		private ProgressDialog progress = null;
+		private List<String> listaAppsOrdenada = new ArrayList<String>();
+		private List<ApplicationInfo> listaAppsNoOrdenada = new ArrayList<ApplicationInfo>();
 
 		@Override
 		protected Void doInBackground(Void... params) {
@@ -46,12 +49,25 @@ public class NuevaRutinaAplicacion extends ListActivity {
 			Catalogo catalogo = Catalogo.getCatalogo();
 			for(ApplicationInfo appInfo:listaAppsTodas){
 				if(!catalogo.existeRutina(appInfo.packageName)){
-					listaApps.add(appInfo);
+					listaAppsNoOrdenada.add(appInfo);
+					listaAppsOrdenada.add(appInfo.loadLabel(Tapadu.context.getPackageManager()).toString());
+				}
+			}
+			Collections.sort(listaAppsOrdenada);
+			for(String nomApp:listaAppsOrdenada){
+				boolean encontrado = false;
+				for(int i=0; i<listaAppsNoOrdenada.size() && !encontrado; i++ ){
+					ApplicationInfo appInfo = listaAppsNoOrdenada.get(i);
+					if(nomApp.equals(appInfo.loadLabel(Tapadu.context.getPackageManager()).toString())){
+						encontrado = true;
+						listaApps.add(appInfo);
+					}
 				}
 			}
 			adaptadorApp = new AdaptadorAppInstalada(NuevaRutinaAplicacion.this, R.layout.elemento_lista, listaApps);
 			return null;
 		}
+		
 
 		@Override
 		protected void onCancelled() {
@@ -67,7 +83,7 @@ public class NuevaRutinaAplicacion extends ListActivity {
 
 		@Override
 		protected void onPreExecute() {
-			progress = ProgressDialog.show(NuevaRutinaAplicacion.this, null, "Loading application info...");
+			progress = ProgressDialog.show(NuevaRutinaAplicacion.this, null, "Cargando aplicaciones, espere por favor");
 			super.onPreExecute();
 		}
 

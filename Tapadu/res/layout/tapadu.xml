@@ -50,5 +50,12 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/btConfig"
         android:text="@string/btConfig" />
+    <Button
+        android:id="@+id/btSalir"
+        style="@style/AppTheme.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/btSalir"
+        android:text="@string/btSalir" />
 
 </LinearLayout>

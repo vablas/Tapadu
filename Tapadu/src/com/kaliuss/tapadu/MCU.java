@@ -6,7 +6,6 @@ package com.kaliuss.tapadu;
 import android.content.pm.ApplicationInfo;
 
 import com.kaliuss.tapadu.actividades.Tapadu;
-import com.kaliuss.tapadu.dao.CatalogoDAO;
 import com.kaliuss.tapadu.entidades.Catalogo;
 import com.kaliuss.tapadu.entidades.Rutina;
 
@@ -52,13 +51,13 @@ public class MCU {
 	public void modificarRutina(ApplicationInfo appInfo, String palabraClave){
 		//Primero eliminamos la rutina anterior
 		Rutina rutOld = catalogo.getRutinaByNombrePackage(appInfo.packageName);
-		catalogo.eliminaRutinaByPalabraClave(rutOld.getPalabraClave());
+		catalogo.eliminaRutinaByNomPackage(rutOld.getNomPackage());
 		
 		//Añadimos la nueva rutina
 		Rutina rutina = new Rutina();
 		rutina.setNombre(appInfo.loadLabel(Tapadu.context.getPackageManager()).toString());
 		rutina.setNomPackage(appInfo.packageName);
-		rutina.setPalabraClave(palabraClave);
+		rutina.setPalabraClave(palabraClave.trim());
 		catalogo.addRutina(rutina);
 	}
 

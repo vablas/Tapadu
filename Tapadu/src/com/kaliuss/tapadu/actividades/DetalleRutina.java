@@ -12,6 +12,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kaliuss.tapadu.MCU;
 import com.kaliuss.tapadu.entidades.Catalogo;
@@ -83,7 +84,7 @@ public class DetalleRutina extends Activity {
 	}
 
 	protected void regresa() {
-		Intent i = new Intent(this, ConsultaRutina.class);
+		Intent i = new Intent(this, Tapadu.class);
 		startActivity(i);
 	}
 
@@ -100,7 +101,9 @@ public class DetalleRutina extends Activity {
 		.setPositiveButton(this.getResources().getText(R.string.btOk),new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog,int id) {
 				MCU mcu = new MCU();
-				mcu.eliminarRutinaByPalabraClave(tvPalabraClave.getText().toString());
+				if(mcu.eliminarRutinaByPalabraClave(tvPalabraClave.getText().toString())){
+					Toast.makeText(Tapadu.context, R.string.msjRutinaEliminada, Toast.LENGTH_SHORT).show();
+				}
 				regresa();
 			}
 		})

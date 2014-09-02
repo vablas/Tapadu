@@ -12,6 +12,7 @@
     <string name="btSubeCatalogo">Subir Catálogo</string>
     <string name="btDescCatalogo">Descarga Catálogo</string>
     <string name="btConfig">Configuración</string>
+    <string name="btSalir">Salir</string>
     
     <string name="msjErrorInstalarGoogleVoice">Para activar el reconocimiento de voz, debes instalar \"Google Voice Search\"</string>
     <string name="msjPreguntarInstalarGoogleVoice">¿Deseas instalar \"Google Voice Search\" desde Google Play?</string>
@@ -19,15 +20,15 @@
     <string name="btCancel">Cancelar</string>
     
     
-    <string name="txtPaso1NuevaRutina">1. Selecciona la aplicación</string>
-    <string name="txtPaso1Rutina">Paso 1/2</string>
+    <string name="txtPaso1NuevaRutina">Selecciona la aplicación</string>
+    <string name="txtPaso1Rutina">Paso 1 de 2</string>
     <string name="mpNuevaRutina">Estás en: Nueva rutina</string>
-    <string name="txtPaso3NuevaRutina">2. Di la palabra clave</string>
-    <string name="txtPaso2Rutina">Paso 2/2</string>
+    <string name="txtPaso3NuevaRutina">Di la palabra clave</string>
+    <string name="txtPaso2Rutina">Paso 2 de 2</string>
     <string name="btGuardarRutina">Guardar rutina</string>
     <string name="msjRutinaGuardada">La rutina ha sido guardada correctamente</string>
     <string name="hntEtiquetas">Escribe palabras que definan la aplicación</string>
-    <string name="txtPaso3">Pulsa el botón para decir la palabra clave</string>
+    <string name="txtPaso3">Pulsa para decir la palabra clave</string>
     <string name="txtPaso3PalabraClave">La palabra clave capturada es:</string>
     <string name="msjPalabraClave">Diga la palabra clave</string>
     <string name="errCategoria">Se debe seleccionar una categoría</string>
@@ -40,7 +41,8 @@
     <string name="txtPaso1Consulta">Selecciona la rutina sobre la que desees ver el detalle</string>
     <string name="mpConsultaRutina">Estás en: Consulta rutina</string>
     
-    <string name="errNoExisteRutina">No se ha encontrado la rutina</string>
+    <string name="errNoExisteRutina1">La palabra clave "</string>
+    <string name="errNoExisteRutina2">" no tiene asociada ninguna aplicación. Pulsa en consultar rutinas para revisar las rutinas dadas de alta.</string>
     <string name="errNoExisteRutinaIntentar">Pulsa para volver a intentarlo</string>
     <string name="errNoRecuperaVoz">ERROR: Se ha producido un error con Google Voice</string>
     
@@ -58,9 +60,17 @@
     
     <string name="modPalabraClave">Modifica la palabra clave</string>
     <string name="mpModRutina">Estás en: Detalle rutina > Modificar rutina</string>
-    <string name="btModRutinaPC">Pulsa el botón para modificar la palabra clave</string>
+    <string name="btModRutinaPC">Pulsa para modificar la palabra clave</string>
     <string name="btModRutina">Guardar cambios</string>
     <string name="msjRutinaModificada">La rutina ha sido modificada correctamente</string>
+    <string name="msjRutinaEliminada">Se ha eliminado la rutina correctamente</string>
+    
+    <string name="titPrefIdioma">Idioma</string>
+    <string name="msjPrefIdioma">Selecciona el idioma de la aplicación</string>
+    <string name="titPreferencias">Preferencias</string>
+    
+    <string name="titSalir">Salir</string>
+    <string name="titMsjSalir">¿Desea salir de la aplicación?</string>
     
 </resources>
 

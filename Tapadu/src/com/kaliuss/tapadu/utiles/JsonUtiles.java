@@ -19,9 +19,9 @@ public class JsonUtiles {
 		try {
 			for(Rutina rut:listaRutinas){
 				JSONObject object = new JSONObject();
-				object.put("nombre", rut.getNombre());
-				object.put("nomPackage", rut.getNomPackage());
-				object.put("palabraClave", rut.getPalabraClave());
+				object.put("nombre", rut.getNombre().trim());
+				object.put("nomPackage", rut.getNomPackage().trim());
+				object.put("palabraClave", rut.getPalabraClave().trim());
 				jsonArray.put(object);
 			}
 

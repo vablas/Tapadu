@@ -1,6 +1,7 @@
 package com.kaliuss.tapadu.actividades;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,15 +10,13 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kaliuss.tapadu.MCU;
 import com.kaliuss.tapadu.entidades.Catalogo;
+import com.kaliuss.tapadu.entidades.Rutina;
 import com.kaliuss.tapadu.utiles.SpeechRecognitionHelper;
 
 public class NuevaRutinaDatos extends Activity {
@@ -78,20 +77,19 @@ public class NuevaRutinaDatos extends Activity {
 			//Separo el texto en palabras.
 			String palabras = matches.get(0).toString();
 			etPalabraClave.setText(getResources().getString(R.string.txtPaso3PalabraClave) + " "+palabras);
+			Toast.makeText(this, getResources().getString(R.string.txtPaso3PalabraClave) + " "+palabras, Toast.LENGTH_SHORT).show();
 		}
 	}
 
 	protected void guardarRutina(Object object) {
 		if(validaDatosRutina()){
 			MCU mcu = new MCU();
-			String palabraClave = etPalabraClave.getText().toString().replace(getResources().getString(R.string.txtPaso3PalabraClave), "");
+			String palabraClave = etPalabraClave.getText().toString().replace(getResources().getString(R.string.txtPaso3PalabraClave), "").trim();
 			mcu.guardarNuevaRutina(appInfoSeleccionada, palabraClave);
 			Toast.makeText(this, R.string.msjRutinaGuardada, Toast.LENGTH_SHORT).show();
 			Intent i = new Intent(this, Tapadu.class);
 			startActivity(i);
 		}
-
-
 	}
 
 	/**
@@ -106,8 +104,8 @@ public class NuevaRutinaDatos extends Activity {
 			sep="\n";
 			etPalabraClave.setBackgroundResource(R.drawable.border_error);
 		}else{
-			palabraClave = etPalabraClave.getText().toString().replace(getResources().getString(R.string.txtPaso3PalabraClave), "");
-			if(Catalogo.getCatalogo().existePalabraClave(palabraClave,"")){
+			palabraClave = etPalabraClave.getText().toString().replace(getResources().getString(R.string.txtPaso3PalabraClave), "").trim();
+			if(!palabraClaveValida(palabraClave)){
 				mensajeError += sep+getResources().getString(R.string.errPalabraClaveDuplicada) ;
 				sep="\n";
 				etPalabraClave.setBackgroundResource(R.drawable.border_error);
@@ -122,6 +120,45 @@ public class NuevaRutinaDatos extends Activity {
 			return false;
 		}
 		return true;
+	}
+	
+	public static boolean palabraClaveValida(String palabraClave){
+		List<Rutina> listaRutinas = Catalogo.getCatalogo().getListaRutinas();
+		List<String> listaPalabrasClave = despreciarArticulos(palabraClave);
+		for(Rutina r:listaRutinas){
+			for(String pc:listaPalabrasClave){
+				if(r.getPalabraClave().toUpperCase().contains(pc)){
+					return false;
+				}	
+			}
+			
+		}
+		return true;
+	}
+	
+	private static List<String> despreciarArticulos(String palabraClave){
+		String vectorPalabraClave[] = palabraClave.toUpperCase().split(" ");
+		List<String> listaFinal = new ArrayList<String>();
+		List<String> listaArticulos = new ArrayList<String>();
+		listaArticulos = initListaArticulos();
+		for(int i =0; i<vectorPalabraClave.length;i++){
+			if(!listaArticulos.contains(vectorPalabraClave[i])){
+				listaFinal.add(vectorPalabraClave[i]);
+			}
+		}
+		return listaFinal;
+	}
+	
+	private static List<String> initListaArticulos(){
+		List<String> listaArticulosDespreciar = new ArrayList<String>();
+		listaArticulosDespreciar.add("EL");
+		listaArticulosDespreciar.add("LA");
+		listaArticulosDespreciar.add("LAS");
+		listaArticulosDespreciar.add("LOS");
+		listaArticulosDespreciar.add("EN");
+		listaArticulosDespreciar.add("DEL");
+		listaArticulosDespreciar.add("DESDE");
+		return listaArticulosDespreciar;
 	}
 
 }

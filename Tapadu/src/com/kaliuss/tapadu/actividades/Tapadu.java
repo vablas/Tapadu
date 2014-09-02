@@ -1,7 +1,9 @@
 package com.kaliuss.tapadu.actividades;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +17,7 @@ public class Tapadu extends Activity {
 	private Button btSubeCatalogo;
 	private Button btDescargaCatalogo;
 	private Button btConfig;
+	private Button btSalir;
 	
 	public static Context context;
 
@@ -58,6 +61,13 @@ public class Tapadu extends Activity {
 			}
 		});
 		
+		btSalir =(Button) findViewById(R.id.btSalir);
+		btSalir.setOnClickListener(new OnClickListener() {
+			public void onClick(View view) {
+				lanzarSalirApp(null);
+			}
+		});
+		
 		context = getApplicationContext();
 	}
 
@@ -83,7 +93,37 @@ public class Tapadu extends Activity {
 	}
 
 	public void lanzarConfig(View view){
-		//	      Intent i = new Intent(this, AcercaDe.class);
-		//	            startActivity(i);
+		Intent i = new Intent(this, Preferencias.class);
+		startActivity(i);
+	}
+	
+	public void lanzarSalirApp(View view){
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+		alertDialogBuilder.setTitle(this.getResources().getText(R.string.titSalir));
+		alertDialogBuilder
+		.setMessage(this.getResources().getText(R.string.titMsjSalir))
+		.setCancelable(false)
+		.setPositiveButton(this.getResources().getText(R.string.btOk),new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog,int id) {
+				dialog.cancel();
+				salirApp();
+			}
+		})
+		.setNegativeButton(this.getResources().getText(R.string.btCancel),new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog,int id) {
+				dialog.cancel();
+			}
+		});
+
+		AlertDialog alertDialog = alertDialogBuilder.create();
+		alertDialog.show();
+	}
+	
+	public void salirApp(){
+		this.finish();
+		Intent startMain = new Intent(Intent.ACTION_MAIN);
+		startMain.addCategory(Intent.CATEGORY_HOME);
+		startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		startActivity(startMain);
 	}
 }

@@ -3,16 +3,14 @@ package com.kaliuss.tapadu.actividades;
 import java.util.ArrayList;
 
 import android.app.Activity;
-import android.appwidget.AppWidgetManager;
-import android.content.ComponentName;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
-import android.widget.RemoteViews;
 
 import com.kaliuss.tapadu.MCU;
-import com.kaliuss.tapadu.widget.WidgetTapadu;
 
 public class WidgetActivity extends Activity {
 
@@ -26,7 +24,9 @@ public class WidgetActivity extends Activity {
 	private void lanzarAplicacion() {
 		ArrayList<String> voiceResults = this.getIntent().getExtras().getStringArrayList(RecognizerIntent.EXTRA_RESULTS);
 		MCU mcu = new MCU();
+		String msjError = "";
 		if(voiceResults!=null){
+			msjError = voiceResults.get(0);
 			for(String palabraClave:voiceResults){
 				String nomPackage = mcu.getPackageRutina(palabraClave);
 				if(!"".equals(nomPackage)){
@@ -37,8 +37,8 @@ public class WidgetActivity extends Activity {
 						if (i == null)
 							throw new PackageManager.NameNotFoundException();
 						i.addCategory(Intent.CATEGORY_LAUNCHER);
+						this.finish();
 						startActivity(i);
-						actualizaWidgetRutinaNoEncontrada(this.getResources().getText(R.string.wgPalabraClave).toString());
 						return;
 					} catch (PackageManager.NameNotFoundException e) {
 
@@ -46,17 +46,26 @@ public class WidgetActivity extends Activity {
 				}
 			}
 		}
-		actualizaWidgetRutinaNoEncontrada(this.getResources().getText(R.string.errNoExisteRutina).toString());
+		actualizaWidgetRutinaNoEncontrada(this.getResources().getText(R.string.errNoExisteRutina1).toString()+msjError+this.getResources().getText(R.string.errNoExisteRutina2).toString());
+	}
+
+	private void actualizaWidgetRutinaNoEncontrada(String msj) {
+
+		AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);  
+		dialogo1.setTitle("Tapadu");  
+		dialogo1.setMessage(msj);            
+		dialogo1.setCancelable(false); 
+		dialogo1.setPositiveButton(this.getResources().getText(R.string.btOk).toString(), new DialogInterface.OnClickListener() {  
+			public void onClick(DialogInterface dialogo1, int id) {  
+				terminaAplicacion();
+			}  
+		});  
+		dialogo1.show();        
 	}
 	
-	private void actualizaWidgetRutinaNoEncontrada(String msj) {
-		AppWidgetManager appWidgetManager= AppWidgetManager.getInstance(this);
-		RemoteViews remoteViews = new RemoteViews(this.getPackageName(),R.layout.widget);
-		ComponentName thisWidget = new ComponentName(this, WidgetTapadu.class);
-		remoteViews.setTextViewText(R.id.msjWidget, msj);
-		appWidgetManager.updateAppWidget(thisWidget, remoteViews);
-		
-		this.finish();
+	private void terminaAplicacion(){
+		Intent i = new Intent(this, Tapadu.class);
+		startActivity(i);
 		
 		Intent startMain = new Intent(Intent.ACTION_MAIN);
 		startMain.addCategory(Intent.CATEGORY_HOME);

@@ -94,6 +94,20 @@ public class Catalogo {
 		return false;
 	}
 	
+	/**
+	 * @param palabraClave
+	 */
+	public boolean eliminaRutinaByNomPackage(String nomPackage) {
+		for(Rutina rutina:listaRutinas){
+			if(rutina.getNomPackage().trim().toUpperCase().equals(nomPackage.toUpperCase())){
+				listaRutinas.remove(rutina);
+				actualizaCatalogo();
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	
 
 }

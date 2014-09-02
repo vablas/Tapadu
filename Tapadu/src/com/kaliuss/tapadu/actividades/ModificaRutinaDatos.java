@@ -10,11 +10,8 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -110,7 +107,7 @@ public class ModificaRutinaDatos extends Activity {
 			String palabraClave = etPalabraClave.getText().toString().replace(getResources().getString(R.string.txtPaso3PalabraClave), "");
 			mcu.modificarRutina(appInfoSeleccionada, palabraClave);
 			Toast.makeText(this, R.string.msjRutinaModificada, Toast.LENGTH_SHORT).show();
-			Intent i = new Intent(this, ConsultaRutina.class);
+			Intent i = new Intent(this, Tapadu.class);
 			startActivity(i);
 		}
 
@@ -128,8 +125,8 @@ public class ModificaRutinaDatos extends Activity {
 			sep="\n";
 			etPalabraClave.setBackgroundResource(R.drawable.border_error);
 		}else{
-			palabraClave = etPalabraClave.getText().toString().replace(getResources().getString(R.string.txtPaso3PalabraClave), "");
-			if(Catalogo.getCatalogo().existePalabraClave(palabraClave, rutina.getNomPackage())){
+			palabraClave = etPalabraClave.getText().toString().replace(getResources().getString(R.string.txtPaso3PalabraClave), "").trim();
+			if(!NuevaRutinaDatos.palabraClaveValida(palabraClave)){
 				mensajeError += sep+getResources().getString(R.string.errPalabraClaveDuplicada) ;
 				sep="\n";
 				etPalabraClave.setBackgroundResource(R.drawable.border_error);
